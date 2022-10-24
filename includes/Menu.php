@@ -36,10 +36,11 @@ class Menu {
 
 		add_menu_page( esc_attr__( 'WP Emailer', 'wp-emailer' ), esc_attr__( 'WP Emailer', 'wp-emailer' ), $capability, $slug, array( $this, 'plugin_page' ), 'dashicons-email', $menu_position );
 
+		// Register this only for Administrator user.
 		if ( current_user_can( $capability ) ) {
-			$submenu[ $slug ][] = array( esc_attr__( 'Home', 'wp-emailer' ), $capability, 'admin.php?page=' . $slug . '#/' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-			$submenu[ $slug ][] = array( esc_attr__( 'Emails', 'wp-emailer' ), $capability, 'admin.php?page=' . $slug . '#/emails' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-			$submenu[ $slug ][] = array( esc_attr__( 'Settings', 'wp-emailer' ), $capability, 'admin.php?page=' . $slug . '#/settings' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+			$submenu[ $slug ][] = array( esc_attr__( 'Home', 'wp-emailer' ), $capability, 'http://localhost/wpvue/wp-admin/admin.php?page=wp-emailer#/' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+			$submenu[ $slug ][] = array( esc_attr__( 'Settings', 'wp-emailer' ), $capability, 'http://localhost/wpvue/wp-admin/admin.php?page=wp-emailer#/settings' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+			$submenu[ $slug ][] = array( esc_attr__( 'Graph', 'wp-emailer' ), $capability, 'http://localhost/wpvue/wp-admin/admin.php?page=wp-emailer#/graph' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 		}
 	}
 

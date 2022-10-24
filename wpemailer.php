@@ -203,7 +203,7 @@ final class Wp_Emailer {
 	public function includes() {
 		if ( $this->is_request( 'admin' ) ) {
 			// Show this only if administrator role is enabled.
-			$this->container['admin_menu'] = new Akash\WpEmailer\Menu();
+			$this->container['menu'] = new Akash\WpEmailer\Menu();
 		}
 	}
 
@@ -220,6 +220,9 @@ final class Wp_Emailer {
 
 		// Localize our plugin.
 		add_action( 'init', array( $this, 'localization_setup' ) );
+
+		// Register styles and scripts.
+		add_action( 'init', array( $this, 'register_asset' ) );
 
 		// Add the plugin page links.
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
@@ -246,7 +249,19 @@ final class Wp_Emailer {
 	 * @return void
 	 */
 	public function localization_setup() {
-		load_plugin_textdomain( 'wp-emailer', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'wp-emailer', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	}
+
+	/**
+	 * Register all styles and scripts.
+	 *
+	 * @since WP_EMAILER_SINCE
+	 *
+	 * @return void
+	 */
+	public function register_asset() {
+		wp_emailer()->assets->register_all_scripts();
+		wp_emailer()->assets->localize_scripts();
 	}
 
 	/**
@@ -288,7 +303,7 @@ final class Wp_Emailer {
 	 */
 	public function plugin_action_links( $links ) {
 		$links[] = '<a href="' . admin_url( 'admin.php?page=wp-emailer#/settings' ) . '">' . __( 'Settings', 'wp-emailer' ) . '</a>';
-		$links[] = '<a href="https://github.com/ManiruzzamanAkash/wp-emailer#quick-start" target="_blank">' . __( 'Documentation', 'wp-emailer' ) . '</a>';
+		$links[] = '<a href="https://github.com/ManiruzzamanAkash/wp-emailer" target="_blank">' . __( 'Documentation', 'wp-emailer' ) . '</a>';
 
 		return $links;
 	}

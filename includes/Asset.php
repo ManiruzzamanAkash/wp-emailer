@@ -15,8 +15,7 @@ class Asset {
 	 * @since WP_EMAILER_SINCE
 	 */
 	public function __construct() {
-		add_action( 'init', array( $this, 'register_all_scripts' ), 10 );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ), 11 );
 	}
 
 	/**
@@ -42,7 +41,7 @@ class Asset {
 		return array(
 			'wp-emailer-css' => array(
 				'src'     => WP_EMAILER_ASSETS . '/css/main.css',
-				'version' => WP_EMAILER_VERSION,
+				'version' => filemtime( WP_EMAILER_DIR . '/assets/css/main.css' ),
 				'deps'    => array(),
 			),
 		);
@@ -59,7 +58,7 @@ class Asset {
 		return array(
 			'wp-emailer-js' => array(
 				'src'       => WP_EMAILER_ASSETS . '/js/main.js',
-				'version'   => filemtime( WP_EMAILER_DIR . '/js/main.js' ),
+				'version'   => filemtime( WP_EMAILER_DIR . '/assets/js/main.js' ),
 				'deps'      => array(),
 				'in_footer' => true,
 			),
@@ -99,7 +98,7 @@ class Asset {
 	/**
 	 * Enqueue admin styles and scripts.
 	 *
-	 * @since WP_EMAILER_SINCE Loads the JS and CSS only on the Job Place admin page.
+	 * @since WP_EMAILER_SINCE
 	 *
 	 * @return void
 	 */
@@ -111,5 +110,62 @@ class Asset {
 
 		wp_enqueue_style( 'wp-emailer-css' );
 		wp_enqueue_script( 'wp-emailer-js' );
+	}
+
+	/**
+	 * Localize scripts.
+	 *
+	 * @return void
+	 */
+	public function localize_scripts() {
+		$user = wp_get_current_user();
+
+		wp_localize_script(
+			'wp-emailer-js',
+			'wpEmailer',
+			array(
+				'user' => [
+					'id'        => $user->ID,
+					'name'      => $user->display_name,
+					'username'  => $user->user_login,
+					'email'     => $user->user_email,
+					'avatar'    => get_avatar_url( $user->ID ),
+					'adminUrl'  => admin_url( 'profile.php' ),
+					'logoutUrl' => wp_logout_url(),
+				],
+				'site' => [
+					'admin_url' => admin_url( 'admin.php' ),
+					'name'      => get_bloginfo( 'name' ),
+					'url'       => get_site_url(),
+					'logo'      => get_site_icon_url(),
+					'base_url'  => $this->get_router_base_url( admin_url( 'admin.php' ) . '?page = wp-emailer' ),
+				],
+			)
+		);
+	}
+
+	/**
+	 * Get router base url.
+	 *
+	 * @since WP_EMAILER_SINCE
+	 *
+	 * @param string $admin_page_url
+	 *
+	 * @return string
+	 */
+	public function get_router_base_url( $admin_page_url ) {
+		$route_parts = explode('/', $admin_page_url);
+		$base_route = '';
+
+		foreach($route_parts as $i => $part) {
+			if ($i !== 0 ) {
+				$base_route .= $part;
+				if ($i !== 1 && $i !== count($route_parts) - 1) {
+					$base_route .= '/';
+				}
+			}
+		}
+
+		return $base_route . '#';
 	}
 }
