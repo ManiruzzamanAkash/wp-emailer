@@ -13,6 +13,7 @@ import './i18n';
 import "./styles/main.scss";
 import i18nMixin from "./mixins/i18n";
 import './utils/menu-fix';
+import store from "./store";
 
 // Create vue app instance.
 const app = createApp({
@@ -20,6 +21,7 @@ const app = createApp({
     mixins: [i18nMixin]
 });
 app.use(router);
+app.use(store);
 app.config.devtools = process.env.NODE_ENV === "development";
 
 // Finally Mount on the #wp-emailer div.

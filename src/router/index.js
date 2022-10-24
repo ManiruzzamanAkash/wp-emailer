@@ -13,14 +13,14 @@ import Graph from "../pages/Graph.vue";
 const routes = [
   {
     path: "/",
-    name: "List",
-    component: List,
-    alias: '/list'
+    name: "Settings",
+    component: Settings,
+    alias: '/settings'
   },
   {
-    path: "/settings",
-    name: "Settings",
-    component: Settings
+    path: "/list",
+    name: "List",
+    component: List,
   },
   {
     path: "/graph",

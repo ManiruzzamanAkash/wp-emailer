@@ -1,10 +1,10 @@
 <template>
   <div id="wp-emailer-tabs">
     <div class="tab-item">
-      <router-link to="/">List</router-link>
+      <router-link to="/">Settings</router-link>
     </div>
     <div class="tab-item">
-      <router-link to="/settings">Settings</router-link>
+      <router-link to="/list">List</router-link>
     </div>
     <div class="tab-item">
       <router-link to="/graph">Graph</router-link>
