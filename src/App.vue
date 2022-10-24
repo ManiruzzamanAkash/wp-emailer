@@ -11,11 +11,17 @@
 
 <script>
 import Tabs from './components/tabs/Tabs.vue';
+import { menuFix } from './utils/menu-fix';
 
 export default {
     name: 'App',
     components: {
         Tabs
     },
+    watch: {
+        $route() {
+            menuFix();
+        }
+    }
 };
 </script>

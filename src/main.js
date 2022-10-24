@@ -12,6 +12,7 @@ import router from "./router";
 import './i18n';
 import "./styles/main.scss";
 import i18nMixin from "./mixins/i18n";
+import './utils/menu-fix';
 
 // Create vue app instance.
 const app = createApp({

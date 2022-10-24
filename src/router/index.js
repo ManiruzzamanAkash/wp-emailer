@@ -29,10 +29,7 @@ const routes = [
   }
 ];
 
-console.log('base_url', wpEmailer.site.base_url);
-
 const router = createRouter({
-    // history: createWebHistory('/wpvue/wp-admin/admin.php?page=wp-emailer#'),
     history: createWebHistory(wpEmailer.site.base_url),
     routes
 });
