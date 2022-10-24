@@ -24,7 +24,7 @@
 			  ignoreDeprecatedCodeUnits="true"
 			  disableCodeCoverageIgnore="true">
 		<include>
-			<directory suffix=".php">inc</directory>
+			<directory suffix=".php">includes</directory>
 		</include>
 	</coverage>
 </phpunit>

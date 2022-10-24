@@ -18,12 +18,18 @@ composer install
 npm install
 ```
 
-## PHP CS
+## PHP Coding Standard check and fix
 
 ```sh
 # Check if any PHPCS issues found.
-./vendor/bin/phpcs .
+composer run phpcs
 
 # Fix any possible PHPCS issues.
-./vendor/bin/phpcbf .
+composer run phpcs:fix
+```
+
+## PHP Unit test
+
+```sh
+composer run test
 ```

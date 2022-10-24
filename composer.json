@@ -32,10 +32,13 @@
     },
     "scripts": {
         "phpcs": [
-            "phpcs -p -s"
+            "vendor/bin/phpcs -p -s"
         ],
-        "phpcbf": [
-            "phpcbf -p"
+        "phpcs:fix": [
+            "vendor/bin/phpcbf -p"
+        ],
+        "test": [
+            "vendor/bin/phpunit --bootstrap tests/phpunit/bootstrap.php tests/phpunit/"
         ]
     }
 }
