@@ -124,7 +124,7 @@ class Asset {
 			'wp-emailer-js',
 			'wpEmailer',
 			array(
-				'user' => [
+				'user' => array(
 					'id'        => $user->ID,
 					'name'      => $user->display_name,
 					'username'  => $user->user_login,
@@ -132,14 +132,14 @@ class Asset {
 					'avatar'    => get_avatar_url( $user->ID ),
 					'adminUrl'  => admin_url( 'profile.php' ),
 					'logoutUrl' => wp_logout_url(),
-				],
-				'site' => [
+				),
+				'site' => array(
 					'admin_url' => admin_url( 'admin.php' ),
 					'name'      => get_bloginfo( 'name' ),
 					'url'       => get_site_url(),
 					'logo'      => get_site_icon_url(),
 					'base_url'  => $this->get_router_base_url( admin_url( 'admin.php' ) . '?page = wp-emailer' ),
-				],
+				),
 			)
 		);
 	}
@@ -149,23 +149,12 @@ class Asset {
 	 *
 	 * @since WP_EMAILER_SINCE
 	 *
-	 * @param string $admin_page_url
+	 * @param string $admin_page_url Admin page URL.
 	 *
 	 * @return string
 	 */
 	public function get_router_base_url( $admin_page_url ) {
-		$route_parts = explode('/', $admin_page_url);
-		$base_route = '';
-
-		foreach($route_parts as $i => $part) {
-			if ($i !== 0 ) {
-				$base_route .= $part;
-				if ($i !== 1 && $i !== count($route_parts) - 1) {
-					$base_route .= '/';
-				}
-			}
-		}
-
-		return $base_route . '#';
+		$url_with_domain = substr( $admin_page_url, strpos( $admin_page_url, '//' ) + 2 );
+		return substr( $url_with_domain, strpos( $url_with_domain, '/' ) + 1 ) . '#';
 	}
 }

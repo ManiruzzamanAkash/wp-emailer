@@ -27,14 +27,14 @@ class AssetTest extends \WP_UnitTestCase {
         $admin_page_url1 = 'http://host.com/folder/wp-admin/admin.php?page=wp-emailer';
         $admin_page_url2 = 'http://host.com/wp-admin/admin.php?page=wp-emailer';
 
-        $this->assert_equals(
-            'wpvue/wp-admin/admin.php?page=wp-emailer#',
-            $this->asset->get_router_base_url( $admin_page_url1 )
+        $this->assertEquals(
+            $this->asset->get_router_base_url( $admin_page_url1 ),
+            'folder/wp-admin/admin.php?page=wp-emailer#',
         );
 
-        $this->assert_equals(
-            'wp-admin/admin.php?page=wp-emailer#',
-            $this->asset->get_router_base_url( $admin_page_url2 )
+        $this->assertEquals(
+            $this->asset->get_router_base_url( $admin_page_url2 ),
+            'wp-admin/admin.php?page=wp-emailer#'
         );
     }
 }
