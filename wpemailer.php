@@ -203,7 +203,8 @@ final class Wp_Emailer {
 	public function includes() {
 		if ( $this->is_request( 'admin' ) ) {
 			// Show this only if administrator role is enabled.
-			$this->container['menu'] = new Akash\WpEmailer\Menu();
+			$this->container['menu']      = new Akash\WpEmailer\Menu();
+			$this->container['ajax_data'] = new Akash\WpEmailer\Ajax\Data();
 		}
 	}
 
