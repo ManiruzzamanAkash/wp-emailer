@@ -2,108 +2,123 @@
 
 namespace Akash\WpEmailer\Settings;
 
+use Akash\WpEmailer\Exceptions\InvalidSettingException;
+use Akash\WpEmailer\Settings\Sanitizer\EmailsSanitizer;
+use Akash\WpEmailer\Settings\Sanitizer\HumanDateSanitizer;
+use Akash\WpEmailer\Settings\Sanitizer\NumrowsSanitizer;
+use Akash\WpEmailer\Settings\Validator\EmailsValidator;
+use Akash\WpEmailer\Settings\Validator\HumanDateValidator;
+use Akash\WpEmailer\Settings\Validator\NumrowsValidator;
+
 /**
  * SettingItem class.
  *
  * Handle settings.
  */
 class SettingItem {
-	/**
-	 * Numrows.
-	 *
-	 * @var integer
-	 */
-	private int $numrows;
 
 	/**
-	 * Is human date
+	 * Settings key name.
 	 *
-	 * @var boolean
+	 * @var string
 	 */
-	private bool $humandate;
+	public string $key;
 
 	/**
-	 * Emails.
+	 * Settings key value.
 	 *
-	 * @var array
+	 * @var mixed
 	 */
-	private array $emails;
+	public $value;
 
 	/**
 	 * Class constructor.
 	 *
 	 * @since WP_EMAILER_SINCE
+	 *
+	 * @param string $key   Setting item key name.
+	 * @param mixed  $value Setting item value.
 	 */
-	public function __construct() {
-		$defaults        = Settings::get_default_settings();
-		$this->numrows   = $defaults['numrows'];
-		$this->humandate = $defaults['humandate'];
-		$this->emails    = $defaults['emails'];
+	public function __construct( $key, $value ) {
+		$this->key   = $key;
+		$this->value = $value;
 	}
 
 	/**
-	 * Get the value of numrows.
+	 * Is Valid setting item.
 	 *
-	 * @return int
+	 * @since WP_EMAILER_SINCE
+	 *
+	 * @return bool True if the value was updated, false otherwise.
+	 *
+	 * @throws InvalidSettingException If not valid.
 	 */
-	public function get_numrows(): int {
-		return $this->numrows;
+	public function is_valid() {
+		if ( ! $this->is_key_in_settings( $this->key ) ) {
+			throw new InvalidSettingException( __( 'Setting\'s item not found.', 'wp-emailer' ), 400 );
+		}
+
+		if ( ! $this->is_valid_value( $this->key, $this->value ) ) {
+			throw new InvalidSettingException( __( 'Setting\'s item value is invalid.', 'wp-emailer' ), 400 );
+		}
+
+		return true;
 	}
 
 	/**
-	 * Set the value of numrows.
-	 *
-	 * @param int $numrows Number of rows.
-	 *
-	 * @return self
-	 */
-	public function set_numrows( int $numrows ): self {
-		$this->numrows = $numrows;
-
-		return $this;
-	}
-
-	/**
-	 * Get the value of human date.
+	 * Is key in the list of settings.
 	 *
 	 * @return bool
 	 */
-	public function get_human_date(): bool {
-		return $this->humandate;
+	public function is_key_in_settings() {
+		$default_settings = wp_emailer()->settings->get_default();
+
+		return in_array( $this->key, array_keys( $default_settings ), true );
 	}
 
 	/**
-	 * Set the value of humandate.
+	 * Is setting's item value is valid.
 	 *
-	 * @param bool $humandate Is the date would be human readable date.
+	 * @since WP_EMAILER_SINCE
 	 *
-	 * @return self
+	 * @return bool True if the value was updated, false otherwise.
 	 */
-	public function set_human_date( bool $humandate ): self {
-		$this->humandate = $humandate;
+	public function is_valid_value() {
+		switch ( $this->key ) {
+			case 'numrows':
+				return ( new NumrowsValidator( $this->value ) )->validate();
 
-		return $this;
+			case 'humandate':
+				return ( new HumanDateValidator( $this->value ) )->validate();
+
+			case 'emails':
+				return ( new EmailsValidator( $this->value ) )->validate();
+
+			default:
+				return false;
+		}
 	}
 
 	/**
-	 * Get the value of emails.
+	 * Sanitize and return settings item.
 	 *
-	 * @return array
+	 * @since WP_EMAILER_SINCE
+	 *
+	 * @return mixed Sanitized value.
 	 */
-	public function get_emails(): array {
-		return $this->emails;
-	}
+	public function sanitize() {
+		switch ( $this->key ) {
+			case 'numrows':
+				return ( new NumrowsSanitizer( $this->value ) )->sanitize();
 
-	/**
-	 * Set the value of emails.
-	 *
-	 * @param array $emails Email lists.
-	 *
-	 * @return self
-	 */
-	public function set_emails( array $emails ): self {
-		$this->emails = $emails;
+			case 'humandate':
+				return ( new HumanDateSanitizer( $this->value ) )->sanitize();
 
-		return $this;
+			case 'emails':
+				return ( new EmailsSanitizer( $this->value ) )->sanitize();
+
+			default:
+				return '';
+		}
 	}
 }

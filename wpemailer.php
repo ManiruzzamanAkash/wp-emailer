@@ -202,9 +202,9 @@ final class Wp_Emailer {
 	 */
 	public function includes() {
 		if ( $this->is_request( 'admin' ) ) {
-			// Show this only if administrator role is enabled.
-			$this->container['menu']      = new Akash\WpEmailer\Menu();
-			$this->container['ajax_data'] = new Akash\WpEmailer\Ajax\Data();
+			new Akash\WpEmailer\Menu();
+			new Akash\WpEmailer\Ajax\Data();
+			new Akash\WpEmailer\Ajax\Settings();
 		}
 	}
 
@@ -237,7 +237,8 @@ final class Wp_Emailer {
 	 * @return void
 	 */
 	public function init_classes() {
-		$this->container['assets'] = new Akash\WpEmailer\Asset();
+		$this->container['assets']   = new Akash\WpEmailer\Asset();
+		$this->container['settings'] = new Akash\WpEmailer\Settings\Settings();
 	}
 
 	/**

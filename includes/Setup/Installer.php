@@ -2,6 +2,8 @@
 
 namespace Akash\WpEmailer\Setup;
 
+use Akash\WpEmailer\Settings\Settings;
+
 /**
  * Install plugin DB works.
  *
@@ -10,11 +12,25 @@ namespace Akash\WpEmailer\Setup;
 class Installer {
 
 	/**
-	 * Run DB.
+	 * Run default database setups.
+	 *
+	 * @since WP_EMAILER_SINCE
 	 *
 	 * @return void
 	 */
 	public function run() {
-		// Run default database setups.
+		$this->set_default_settings();
+	}
+
+	/**
+	 * Add default settings while running the application.
+	 *
+	 * @since WP_EMAILER_SINCE
+	 *
+	 * @return void
+	 */
+	private function set_default_settings() {
+		$settings = new Settings();
+		$settings->set();
 	}
 }
