@@ -24,6 +24,10 @@ class EmailsValidator extends AbstractSettingsValidator {
 	 * @return bool
 	 */
 	public function validate(): bool {
+		if ( empty( $this->value ) ) {
+			return true;
+		}
+
 		if ( ! is_array( $this->value ) ) {
 			return false;
 		}

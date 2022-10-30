@@ -21,6 +21,10 @@ class EmailsSanitizer extends AbstractSettingsSanitizer {
 	public function sanitize(): array {
 		$emails = $this->value;
 
+		if ( empty( $emails ) ) {
+			return array();
+		}
+
 		return array_filter(
 			$emails,
 			function ( $email ) {
