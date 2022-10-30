@@ -1,0 +1,23 @@
+$primary: #ff982d;
+$secondary: #999999;
+$secondary_dark: #444444;
+$secondary_lite: #777777;
+$white: #ffffff;
+$black: #000000;
+$success: #41b883;
+$error: #dc3545;
+
+$border: #e4e4e4;
+
+:root {
+  --color-primary: #{$primary};
+  --color-secondary: #{$secondary};
+  --color-secondary-dark: #{$secondary_dark};
+  --color-secondary-lite: #{$secondary_lite};
+  --color-white: #{$white};
+  --color-black: #{$black};
+  --color-success: #{$success};
+  --color-error: #{$error};
+
+  --color-border: #{$border};
+}
