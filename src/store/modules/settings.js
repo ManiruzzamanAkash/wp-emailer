@@ -1,54 +1,96 @@
 /**
  * External dependencies.
  */
-// import axios from 'axios';
+import { getRequest, postRequest } from '../../utils/ajax';
 
 // initial state
 const state = () => ({
-  settings: null,
-  isSaving: false,
-})
+    settings         : {},
+    isSettingsLoading: false,
+    isSettingsSaving : false,
+});
 
 // getters
 const getters = {
-    settings: state => state.settings,
-    isSaving: state => state.isSaving,
+    settings         : state => state.settings,
+    isSettingsLoading: state => state.isSettingsLoading,
+    isSettingsSaving : state => state.isSettingsSaving,
 };
 
 // actions
 const actions = {
-  async storeSettings({ commit }, settings) {
-    commit('setSettingsSaving', true);
+    async fetchSettings({ commit }) {
+        commit('setSettingsLoading', true);
 
-    // @todo: Test checking with Live URL.
-    // await axios.post(`https://example.com`, settings)
-    //   .then(res => {
-    //     commit('storeSettings', res.data);
-    //     commit('setSettingsSaving', false);
-    //   }).catch(err => {
-    //     console.log('error', err);
-    //     commit('setSettingsSaving', false);
-    //   });
+        await getRequest(`action=${'wp_emailer_get_settings'}`)
+            .then(response => {
+                if ( response.success ) {
+                    commit('storeAllSettings', response.data.data);
+                    commit('setSettingsLoading', false);
+                }
+            });
 
-    commit('storeSettings', settings);
-    commit('setSettingsSaving', false);
-  },
-}
+        commit('setSettingsLoading', false);
+    },
+
+    async storeSettings({ dispatch, commit }, input) {
+        commit('setSettingsSaving', true);
+
+        const postData = {
+            key   : input.key,
+            value : input.value,
+            action: 'wp_emailer_update_setting'
+        };
+
+        await postRequest(postData)
+            .then(response => {
+                if ( response?.success ) {
+                    commit('storeSettingItem', input);
+
+                    dispatch('setAlert', {
+                        message  : response?.data?.message,
+                        type     : 'success'
+                    }, {root:true});
+                }
+            }).catch(error => {
+                const errorResponse = JSON.parse(error.responseText);
+                if (errorResponse?.data?.message) {
+                    dispatch('setAlert', {
+                        message  : errorResponse?.data?.message,
+                        type     : 'error'
+                    }, {root:true});
+                }
+            });
+
+        commit('setSettingsSaving', false);
+    },
+};
 
 // mutations
 const mutations = {
-  storeSettings: (state, settings) => {
-    state.settings = settings;
-  },
+    storeAllSettings: (state, settings) => {
+        state.settings = settings;
+    },
 
-  setSettingsSaving: (state, isSaving) => {
-    state.isSaving = isSaving;
-  },
-}
+    storeSettingItem: (state, input) => {
+        state.settings = {
+            ...state.settings,
+            [input.key] : input?.value
+        };
+    },
+
+    setSettingsLoading: (state, isSettingsLoading) => {
+        state.isSettingsLoading = isSettingsLoading;
+    },
+
+    setSettingsSaving: (state, isSettingsSaving) => {
+        state.isSettingsSaving = isSettingsSaving;
+    },
+};
 
 export default {
-  state,
-  getters,
-  actions,
-  mutations
-}
+    state,
+    getters,
+    actions,
+    mutations
+};

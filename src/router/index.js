@@ -6,27 +6,27 @@ import { createRouter, createWebHistory } from "vue-router";
 /**
  * Internal dependencies.
  */
-import List from "../pages/List.vue";
-import Settings from "../pages/Settings.vue";
-import Graph from "../pages/Graph.vue";
+import ListPage from "../pages/ListPage.vue";
+import SettingPage from "../pages/SettingPage.vue";
+import GraphPage from "../pages/GraphPage.vue";
 
 const routes = [
-  {
-    path: "/",
-    name: "Settings",
-    component: Settings,
-    alias: '/settings'
-  },
-  {
-    path: "/list",
-    name: "List",
-    component: List,
-  },
-  {
-    path: "/graph",
-    name: "Graph",
-    component: Graph
-  }
+    {
+        path: "/",
+        name: "SettingPage",
+        component: SettingPage,
+        alias: '/settings'
+    },
+    {
+        path: "/list",
+        name: "ListPage",
+        component: ListPage,
+    },
+    {
+        path: "/graph",
+        name: "GraphPage",
+        component: GraphPage
+    }
 ];
 
 const router = createRouter({
