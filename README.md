@@ -1,5 +1,5 @@
 # WP Emailer
-A WordPress plugin using Vue JS library to work with email settings
+A WordPress plugin using Vue JS framework to work with email settings.
 
 ---
 
@@ -30,6 +30,31 @@ composer run phpcs:fix
 
 ## PHP Unit test
 
+Create a test database called - `wp_phpunit_wpvue` (Only for `phpunit-test`. Not for development or production.)
+Or, configure this from `/tests/phpunit/wp-config.php` file.
+
 ```sh
 composer run test
+```
+
+## PHP Unit test + PHPCS CHeck
+
+```sh
+composer run test:all
+```
+
+## JavaScript Lint error
+
+```sh
+npm run lint
+```
+
+
+## How to build plugin zip -
+
+```sh
+npm run build
+npm run version_replace
+npm run makepot
+npm run zip
 ```

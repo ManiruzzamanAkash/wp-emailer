@@ -18,11 +18,11 @@
 	</testsuites>
 
 	<coverage cacheDirectory="./coverage"
-			  includeUncoveredFiles="true"
-			  processUncoveredFiles="true"
-			  pathCoverage="false"
-			  ignoreDeprecatedCodeUnits="true"
-			  disableCodeCoverageIgnore="true">
+			includeUncoveredFiles="true"
+			processUncoveredFiles="true"
+			pathCoverage="false"
+			ignoreDeprecatedCodeUnits="true"
+			disableCodeCoverageIgnore="true">
 		<include>
 			<directory suffix=".php">includes</directory>
 		</include>
