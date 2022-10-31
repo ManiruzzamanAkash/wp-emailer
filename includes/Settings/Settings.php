@@ -47,7 +47,7 @@ class Settings {
 			'wp_emailer_default_settings',
 			array(
 				'numrows'   => 5,
-				'humandate' => true,
+				'humandate' => 1,
 				'emails'    => array(
 					get_option( 'admin_email' ),
 				),
