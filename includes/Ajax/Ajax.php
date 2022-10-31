@@ -2,12 +2,25 @@
 
 namespace Akash\WpEmailer\Ajax;
 
+use Akash\WpEmailer\Traits\AjaxResponse;
+
 /**
  * Ajax end-points class.
  *
  * @since WP_EMAILER_SINCE
  */
 class Ajax {
+
+	use AjaxResponse;
+
+	/**
+	 * Current user id
+	 *
+	 * @since WP_EMAILER_SINCE
+	 *
+	 * @var integer
+	 */
+	public int $user_id;
 
 	/**
 	 * Ajax method type.
@@ -16,7 +29,7 @@ class Ajax {
 	 *
 	 * @var string
 	 */
-	public string $method;
+	protected string $method;
 
 	/**
 	 * Class constructor.
@@ -52,6 +65,7 @@ class Ajax {
 	protected function pre_checking_and_maybe_stop() {
 		$this->verify_nonce();
 		$this->check_administrator_permission();
+		$this->user_id = get_current_user_id();
 	}
 
 	/**
@@ -92,51 +106,5 @@ class Ajax {
 				401
 			);
 		}
-	}
-
-	/**
-	 * Send JSON success response.
-	 *
-	 * @since WP_EMAILER_SINCE
-	 *
-	 * @param mixed   $data        Response data.
-	 * @param string  $message     Response message.
-	 * @param integer $status_code Response status code.
-	 *
-	 * @return void
-	 */
-	protected function response_success( $data = null, $message = 'Response successful.', $status_code = 200 ) {
-		wp_send_json_success(
-			array(
-				'message' => $message,
-				'data'    => $data,
-			),
-			$status_code
-		);
-
-		wp_die();
-	}
-
-	/**
-	 * Send JSON error response.
-	 *
-	 * @since WP_EMAILER_SINCE
-	 *
-	 * @param string  $message     Response message.
-	 * @param integer $status_code Response status code.
-	 * @param array   $errors      Response errors if any.
-	 *
-	 * @return void
-	 */
-	protected function response_error( $message = 'Failed to process.', $status_code = 400, $errors = array() ) {
-		wp_send_json_error(
-			array(
-				'message' => $message,
-				'errors'  => $errors,
-			),
-			$status_code
-		);
-
-		wp_die();
 	}
 }
