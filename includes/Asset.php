@@ -59,7 +59,7 @@ class Asset {
 			'wp-emailer-js' => array(
 				'src'       => WP_EMAILER_ASSETS . '/js/main.js',
 				'version'   => filemtime( WP_EMAILER_DIR . '/assets/js/main.js' ),
-				'deps'      => array(),
+				'deps'      => array( 'jquery' ),
 				'in_footer' => true,
 			),
 		);
@@ -124,7 +124,7 @@ class Asset {
 			'wp-emailer-js',
 			'wpEmailer',
 			array(
-				'user' => array(
+				'user'     => array(
 					'id'        => $user->ID,
 					'name'      => $user->display_name,
 					'username'  => $user->user_login,
@@ -133,13 +133,15 @@ class Asset {
 					'adminUrl'  => admin_url( 'profile.php' ),
 					'logoutUrl' => wp_logout_url(),
 				),
-				'site' => array(
+				'site'     => array(
 					'admin_url' => admin_url( 'admin.php' ),
 					'name'      => get_bloginfo( 'name' ),
 					'url'       => get_site_url(),
 					'logo'      => get_site_icon_url(),
 					'base_url'  => $this->get_router_base_url( admin_url( 'admin.php' ) . '?page = wp-emailer' ),
 				),
+				'nonce'    => wp_create_nonce( 'wp-emailer-nonce' ),
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
 			)
 		);
 	}
