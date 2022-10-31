@@ -110,6 +110,11 @@ class Settings {
 				$settings_item = new SettingItem( $settings['key'], $settings['value'] );
 
 				if ( $settings_item->is_valid() ) {
+					// If same settings value is passed, then no need to process further.
+					if ( $this->settings[ $settings['key'] ] === $settings_item->sanitize() ) {
+						return true;
+					}
+
 					$this->settings[ $settings['key'] ] = $settings_item->sanitize();
 				}
 			}
