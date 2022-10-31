@@ -82,8 +82,8 @@ class SettingItemTest extends \WP_UnitTestCase {
 	 * @return void
 	 */
 	public function test_is_valid_value_emails() {
-		$setting_item = new SettingItem( 'emails', null );
-		$this->assertNotTrue( $setting_item->is_valid_value() );
+		$setting_item = new SettingItem( 'emails', '' );
+		$this->assertTrue( $setting_item->is_valid_value() );
 
 		// We allow no emails.
 		$setting_item = new SettingItem( 'emails', [] );

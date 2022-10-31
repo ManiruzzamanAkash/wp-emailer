@@ -34,7 +34,7 @@ class Settings extends Ajax {
 
 		$settings = wp_emailer()->settings->get();
 
-		$this->response_success( $settings, 'Settings data fetched successfully.' );
+		$this->response_success( $settings, __( 'Settings fetched successfully.', 'wp-emailer' ) );
 
 		wp_die();
 	}
@@ -51,7 +51,7 @@ class Settings extends Ajax {
 			->pre_checking_and_maybe_stop();
 
 		if ( ! isset( $_POST['key'] ) || ! isset( $_POST['value'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
-			$this->response_error( 'Please provide key and value.', 400 );
+			$this->response_error( __( 'Please provide key and value.', 'wp-emailer' ), 400 );
 		}
 
 		try {
@@ -62,7 +62,7 @@ class Settings extends Ajax {
 				)
 			);
 
-			$this->response_success( $settings, 'Settings data updated successfully.' );
+			$this->response_success( $settings, __( 'Settings updated successfully.', 'wp-emailer' ) );
 		} catch ( Exception $e ) {
 			$this->response_error( $e->getMessage(), $e->getCode() );
 		}

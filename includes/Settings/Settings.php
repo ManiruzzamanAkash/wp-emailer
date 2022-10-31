@@ -71,10 +71,16 @@ class Settings {
 	 *
 	 * @since WP_EMAILER_SINCE
 	 *
+	 * @param string $key Settings key, optional, Pass to get a specific key settings value.
+	 *
 	 * @return array
 	 */
-	public function get() {
+	public function get( $key = null ) {
 		$settings = get_option( self::SETTING_META_KEY );
+
+		if ( ! empty( $key ) && in_array( $key, $settings, true ) ) {
+			return $settings[ $key ];
+		}
 
 		return empty( $settings ) ? $this->default : $settings;
 	}
