@@ -141,7 +141,7 @@ final class Wp_Emailer {
 	}
 
 	/**
-	 * Load the plugin after all plugins are loaded.
+	 * Load the plugins's necessary classes and hooks.
 	 *
 	 * @since 0.0.1
 	 *
@@ -200,7 +200,7 @@ final class Wp_Emailer {
 	 *
 	 * @return void
 	 */
-	public function includes() {
+	private function includes() {
 		if ( $this->is_request( 'admin' ) ) {
 			new Akash\WpEmailer\Menu();
 			new Akash\WpEmailer\Ajax\Data();
@@ -215,7 +215,7 @@ final class Wp_Emailer {
 	 *
 	 * @return void
 	 */
-	public function init_hooks() {
+	private function init_hooks() {
 		// Init classes.
 		add_action( 'init', array( $this, 'init_classes' ) );
 
