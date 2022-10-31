@@ -51,8 +51,6 @@ composer run test:all
 ![Composer run test:all command](https://i.ibb.co/C5HfHKB/Composer-run-test.png "Composer run test:all command").
 
 
-
-
 ## JavaScript Lint error
 
 ```sh
@@ -79,7 +77,7 @@ npm run zip
 
 ## Demo previews
 ### Settings Page
-![Settings Page](https://i.ibb.co/H78Nmv9/01-Settings-Page.png "Settings Page").
+![Settings Page](https://i.ibb.co/71RdZFg/001-Settings-Page.png "Settings Page").
 
 ### List Page
 ![List Page](https://i.ibb.co/ykhKQd1/02-List-Page.png "List Page").
@@ -88,7 +86,7 @@ npm run zip
 ![Graph Page](https://i.ibb.co/x3cTBDL/03-Graph-Page.png "Graph Page").
 
 ### Skeleton Loader for Settings
-![Skeleton Loader for Settings](https://i.ibb.co/SvBX57x/04-Settings-loading.png "Skeleton Loader for Settings").
+![Skeleton Loader for Settings](https://i.ibb.co/HgBGZ53/04-Skeleton-loader.png "Skeleton Loader for Settings").
 
 ### Skeleton Loader for Table
 ![Skeleton Loader for Table](https://i.ibb.co/vkLHvmp/05-Table-loading.png "Skeleton Loader for Table").
