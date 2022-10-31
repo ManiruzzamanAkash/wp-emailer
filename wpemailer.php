@@ -227,6 +227,9 @@ final class Wp_Emailer {
 
 		// Add the plugin page links.
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
+
+		// Redirect plugin page after activation.
+		add_action( 'activated_plugin', array( $this, 'activation_redirect' ) );
 	}
 
 	/**
@@ -308,6 +311,24 @@ final class Wp_Emailer {
 		$links[] = '<a href="https://github.com/ManiruzzamanAkash/wp-emailer" target="_blank">' . __( 'Documentation', 'wp-emailer' ) . '</a>';
 
 		return $links;
+	}
+
+	/**
+	 * Redirect to plugin page after plugin activation.
+	 *
+	 * @since WP_EMAILER_SINCE
+	 *
+	 * @param string $plugin Plugin base path directory.
+	 *
+	 * @return void
+	 */
+	public function activation_redirect( $plugin ) {
+		if ( plugin_basename( __FILE__ ) === $plugin ) {
+			set_transient( 'wpemailer_plugin_installed', true, 30 );
+
+			wp_safe_redirect( admin_url( 'admin.php?page=wp-emailer#/' ) );
+			exit();
+		}
 	}
 }
 
