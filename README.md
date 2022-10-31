@@ -54,7 +54,18 @@ npm run lint
 
 ```sh
 npm run build
-npm run version_replace
+npm run version
 npm run makepot
 npm run zip
 ```
+After running these commands, a zip file named - `wpemailer.zip` will be generated at `dist/` folder.
+
+## Demo previews -
+### Settings Page -
+![Settings Page](https://i.ibb.co/H78Nmv9/01-Settings-Page.png "Settings Page").
+
+### List Page -
+![List Page](https://i.ibb.co/ykhKQd1/02-List-Page.png "List Page").
+
+### Graph Page -
+![Graph Page](https://i.ibb.co/x3cTBDL/03-Graph-Page.png "Graph Page").

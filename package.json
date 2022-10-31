@@ -9,7 +9,8 @@
     "makepot": "wp i18n make-pot --domain='wp-emailer' --exclude='node_modules,.storybook,src,vendor' . --headers='{\"Last-Translator\":\"akash@devsenv.com\",\"Report-Msgid-Bugs-To\":\"https://github.com/ManiruzzamanAkash/wp-emailer/issues\"}' --file-comment=\"Copyright (c) $(date +'%Y') Maniruzzaman Akash. Ltd. All Rights Reserved.\" languages/wp-emailer.pot",
     "lint": "eslint --config .eslintrc.js --ext .js,.vue src",
     "lint-fix": "npm run lint -- --fix",
-    "zip": "node build/zip"
+    "zip": "node build/zip",
+    "version": "node build/version-replace"
   },
   "author": "",
   "license": "GPL v3 or later",
