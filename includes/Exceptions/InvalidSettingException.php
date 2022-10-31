@@ -7,7 +7,7 @@ use Exception;
 /**
  * Invalid Setting Exception class
  *
- * @since WP_EMAILER_SINCE
+ * @since 0.0.1
  *
  * @uses Exception Default exception class.
  */

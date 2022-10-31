@@ -5,14 +5,14 @@ namespace Akash\WpEmailer\Data;
 /**
  * Data class.
  *
- * @since WP_EMAILER_SINCE
+ * @since 0.0.1
  */
 class Data {
 
 	/**
 	 * User id for whom data will be fetching.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @var integer
 	 */
@@ -21,7 +21,7 @@ class Data {
 	/**
 	 * Data end-point URL.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @var string
 	 */
@@ -40,7 +40,7 @@ class Data {
 	/**
 	 * Class constructor.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param int $user_id User id.
 	 */
@@ -64,7 +64,7 @@ class Data {
 	/**
 	 * Check If data is forcefully getting by refresh button.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return boolean
 	 */
@@ -75,7 +75,7 @@ class Data {
 	/**
 	 * Check if data is already fetched once in an hour.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return bool
 	 */
@@ -95,7 +95,7 @@ class Data {
 	/**
 	 * Get remote data and update fetched at time.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return array
 	 */
@@ -131,7 +131,7 @@ class Data {
 	/**
 	 * Update last fetched at meta data for user.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -142,7 +142,7 @@ class Data {
 	/**
 	 * Store list data in transient.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param array $value Stored value.
 	 *
@@ -155,7 +155,7 @@ class Data {
 	/**
 	 * Get data from transient.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return array|null
 	 */

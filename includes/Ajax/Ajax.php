@@ -7,7 +7,7 @@ use Akash\WpEmailer\Traits\AjaxResponse;
 /**
  * Ajax end-points class.
  *
- * @since WP_EMAILER_SINCE
+ * @since 0.0.1
  */
 class Ajax {
 
@@ -16,7 +16,7 @@ class Ajax {
 	/**
 	 * Current user id
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @var integer
 	 */
@@ -25,7 +25,7 @@ class Ajax {
 	/**
 	 * Ajax method type.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @var string
 	 */
@@ -34,7 +34,7 @@ class Ajax {
 	/**
 	 * Class constructor.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 */
 	public function __construct() {
 		$this->method = 'post';
@@ -43,7 +43,7 @@ class Ajax {
 	/**
 	 * Set method.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param string $method Method name.
 	 *
@@ -58,7 +58,7 @@ class Ajax {
 	/**
 	 * Checks pre-checking before running any ajax-endpoint.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -71,7 +71,7 @@ class Ajax {
 	/**
 	 * Verify nonce for get and post method.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -95,7 +95,7 @@ class Ajax {
 	/**
 	 * Check if user has administrator permission.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */

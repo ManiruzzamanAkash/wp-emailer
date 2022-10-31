@@ -14,7 +14,7 @@ class NumrowsValidator extends AbstractSettingsValidator {
 	/**
 	 * Validate Setting's numrows.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return bool
 	 */

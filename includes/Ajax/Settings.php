@@ -7,14 +7,14 @@ use Exception;
 /**
  * Ajax Settings end-points class.
  *
- * @since WP_EMAILER_SINCE
+ * @since 0.0.1
  */
 class Settings extends Ajax {
 
 	/**
 	 * Class constructor.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 */
 	public function __construct() {
 		add_action( 'wp_ajax_wp_emailer_get_settings', array( $this, 'get_settings' ) );
@@ -24,7 +24,7 @@ class Settings extends Ajax {
 	/**
 	 * Get settings data.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -42,7 +42,7 @@ class Settings extends Ajax {
 	/**
 	 * Update settings data.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */

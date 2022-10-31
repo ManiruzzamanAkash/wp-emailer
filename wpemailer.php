@@ -39,7 +39,7 @@ final class Wp_Emailer {
 	 *
 	 * @var string
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 */
 	const SLUG = 'wp-emailer';
 
@@ -48,7 +48,7 @@ final class Wp_Emailer {
 	 *
 	 * @var array
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 */
 	private $container = array();
 
@@ -57,7 +57,7 @@ final class Wp_Emailer {
 	 *
 	 * Sets up all the appropriate hooks and actions within our plugin.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 */
 	private function __construct() {
 		require_once __DIR__ . '/vendor/autoload.php';
@@ -76,7 +76,7 @@ final class Wp_Emailer {
 	 * Checks for an existing Wp_Emailer() instance
 	 * and if it doesn't find one, creates it.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return Wp_Emailer|bool
 	 */
@@ -93,7 +93,7 @@ final class Wp_Emailer {
 	/**
 	 * Magic getter to bypass referencing plugin.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param string $prop class name.
 	 *
@@ -110,7 +110,7 @@ final class Wp_Emailer {
 	/**
 	 * Magic isset to bypass referencing plugin.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param string $prop class name to access from container.
 	 *
@@ -123,7 +123,7 @@ final class Wp_Emailer {
 	/**
 	 * Define the constants.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -143,7 +143,7 @@ final class Wp_Emailer {
 	/**
 	 * Load the plugin after all plugins are loaded.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -154,7 +154,7 @@ final class Wp_Emailer {
 		/**
 		 * Fires after the plugin is loaded.
 		 *
-		 * @since WP_EMAILER_SINCE
+		 * @since 0.0.1
 		 */
 		do_action( 'wp_emailer_loaded' );
 	}
@@ -162,7 +162,7 @@ final class Wp_Emailer {
 	/**
 	 * Activating the plugin.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -174,7 +174,7 @@ final class Wp_Emailer {
 	/**
 	 * Placeholder for deactivation function.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -184,7 +184,7 @@ final class Wp_Emailer {
 	/**
 	 * Run the installer to create necessary migrations and seeders.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -196,7 +196,7 @@ final class Wp_Emailer {
 	/**
 	 * Include the required files.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -211,7 +211,7 @@ final class Wp_Emailer {
 	/**
 	 * Initialize the hooks.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -235,7 +235,7 @@ final class Wp_Emailer {
 	/**
 	 * Instantiate the required classes.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -249,7 +249,7 @@ final class Wp_Emailer {
 	 *
 	 * @uses load_plugin_textdomain()
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -260,7 +260,7 @@ final class Wp_Emailer {
 	/**
 	 * Register all styles and scripts.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -272,7 +272,7 @@ final class Wp_Emailer {
 	/**
 	 * What type of request is this.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param string $type admin, ajax, cron or frontend.
 	 *
@@ -302,7 +302,7 @@ final class Wp_Emailer {
 	 *
 	 * @param array $links necessary links in plugin list page.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return array
 	 */
@@ -316,7 +316,7 @@ final class Wp_Emailer {
 	/**
 	 * Redirect to plugin page after plugin activation.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param string $plugin Plugin base path directory.
 	 *
@@ -335,7 +335,7 @@ final class Wp_Emailer {
 /**
  * Initialize the main plugin.
  *
- * @since WP_EMAILER_SINCE
+ * @since 0.0.1
  *
  * @return \WP_Emailer|bool
  */
@@ -346,6 +346,6 @@ function wp_emailer() {
 /*
  * Kick-off the plugin.
  *
- * @since WP_EMAILER_SINCE
+ * @since 0.0.1
  */
 wp_emailer();

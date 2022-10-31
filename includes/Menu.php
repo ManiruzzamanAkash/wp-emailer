@@ -7,14 +7,14 @@ namespace Akash\WpEmailer;
  *
  * Ensure admin menu registrations.
  *
- * @since WP_EMAILER_SINCE
+ * @since 0.0.1
  */
 class Menu {
 
 	/**
 	 * Constructor.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 */
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'init_menu' ) );
@@ -23,7 +23,7 @@ class Menu {
 	/**
 	 * Init Menu.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -48,7 +48,7 @@ class Menu {
 	/**
 	 * Render the plugin page.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */

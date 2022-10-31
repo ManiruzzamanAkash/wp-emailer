@@ -12,7 +12,7 @@ trait AjaxResponse {
 	/**
 	 * Send JSON success response.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param mixed   $data        Response data.
 	 * @param string  $message     Response message.
@@ -35,7 +35,7 @@ trait AjaxResponse {
 	/**
 	 * Send JSON error response.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param string  $message     Response message.
 	 * @param integer $status_code Response status code.

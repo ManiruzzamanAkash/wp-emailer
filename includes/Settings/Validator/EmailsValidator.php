@@ -8,7 +8,7 @@ use Akash\WpEmailer\Traits\ArrayFilterable;
 /**
  * EmailsValidator class.
  *
- * @since WP_EMAILER_SINCE
+ * @since 0.0.1
  *
  * Handle emails passed in settings to check is valid.
  */
@@ -19,7 +19,7 @@ class EmailsValidator extends AbstractSettingsValidator {
 	/**
 	 * Validate Setting's emails.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return bool
 	 */

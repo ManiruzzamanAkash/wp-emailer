@@ -14,7 +14,7 @@ class Installer {
 	/**
 	 * Run default database setups.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -25,7 +25,7 @@ class Installer {
 	/**
 	 * Add default settings while running the application.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */

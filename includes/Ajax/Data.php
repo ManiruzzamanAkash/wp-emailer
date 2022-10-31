@@ -7,14 +7,14 @@ use Akash\WpEmailer\Data\Data as DataManager;
 /**
  * Ajax Data end-point class.
  *
- * @since WP_EMAILER_SINCE
+ * @since 0.0.1
  */
 class Data extends Ajax {
 
 	/**
 	 * Data manager.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @var \Akash\WpEmailer\Data\Data
 	 */
@@ -23,7 +23,7 @@ class Data extends Ajax {
 	/**
 	 * Class constructor.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 */
 	public function __construct() {
 		$this->data_manager = new DataManager();
@@ -33,7 +33,7 @@ class Data extends Ajax {
 	/**
 	 * Get data via ajax.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */

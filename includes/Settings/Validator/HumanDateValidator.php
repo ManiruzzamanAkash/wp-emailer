@@ -7,7 +7,7 @@ use Akash\WpEmailer\Abstracts\AbstractSettingsValidator;
 /**
  * HumanDateValidator class.
  *
- * @since WP_EMAILER_SINCE
+ * @since 0.0.1
  *
  * Handle is human date switch-box validator.
  */
@@ -16,7 +16,7 @@ class HumanDateValidator extends AbstractSettingsValidator {
 	/**
 	 * Validate Setting's human date switch-box.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return bool
 	 */

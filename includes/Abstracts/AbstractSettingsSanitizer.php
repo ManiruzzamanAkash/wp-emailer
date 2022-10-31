@@ -5,14 +5,14 @@ namespace Akash\WpEmailer\Abstracts;
 /**
  * Abstract setting sanitizer class.
  *
- * @since WP_EMAILER_SINCE
+ * @since 0.0.1
  */
 abstract class AbstractSettingsSanitizer {
 
 	/**
 	 * Setting's item value.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @var mixed
 	 */
@@ -21,7 +21,7 @@ abstract class AbstractSettingsSanitizer {
 	/**
 	 * Class constructor.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param mixed $value Setting item value.
 	 */
@@ -32,7 +32,7 @@ abstract class AbstractSettingsSanitizer {
 	/**
 	 * Get sanitized value.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return mixed
 	 */

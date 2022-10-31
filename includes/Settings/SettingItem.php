@@ -34,7 +34,7 @@ class SettingItem {
 	/**
 	 * Class constructor.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param string $key   Setting item key name.
 	 * @param mixed  $value Setting item value.
@@ -47,7 +47,7 @@ class SettingItem {
 	/**
 	 * Is Valid setting item.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return bool True if the value was updated, false otherwise.
 	 *
@@ -79,7 +79,7 @@ class SettingItem {
 	/**
 	 * Is setting's item value is valid.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return bool True if the value was updated, false otherwise.
 	 */
@@ -102,7 +102,7 @@ class SettingItem {
 	/**
 	 * Sanitize and return settings item.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return mixed Sanitized value.
 	 */

@@ -7,14 +7,14 @@ use Akash\WpEmailer\Exceptions\InvalidSettingException;
 /**
  * Settings class.
  *
- * @since WP_EMAILER_SINCE
+ * @since 0.0.1
  */
 class Settings {
 
 	/**
 	 * Settings data stored in DB.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @var array
 	 */
@@ -23,7 +23,7 @@ class Settings {
 	/**
 	 * Default Settings.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @var array
 	 */
@@ -32,14 +32,14 @@ class Settings {
 	/**
 	 * Settings meta key which will be stored in options table.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 */
 	public const SETTING_META_KEY = 'test_project_option';
 
 	/**
 	 * Class constructor.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 */
 	public function __construct() {
 		$this->settings = array();
@@ -58,7 +58,7 @@ class Settings {
 	/**
 	 * Get default settings.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return array
 	 */
@@ -69,7 +69,7 @@ class Settings {
 	/**
 	 * Get all settings in key-value pair.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param string $key Settings key, optional, Pass to get a specific key settings value.
 	 *
@@ -88,7 +88,7 @@ class Settings {
 	/**
 	 * Set settings.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param array $settings Settings items.
 	 *

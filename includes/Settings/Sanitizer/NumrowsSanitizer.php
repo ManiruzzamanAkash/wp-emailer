@@ -14,7 +14,7 @@ class NumrowsSanitizer extends AbstractSettingsSanitizer {
 	/**
 	 * Get sanitized value.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return int
 	 */

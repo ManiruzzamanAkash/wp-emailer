@@ -14,7 +14,7 @@ trait ArrayFilterable {
 	/**
 	 * Remove any empty-item from array.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param array $values Array values.
 	 *
@@ -38,7 +38,7 @@ trait ArrayFilterable {
 	/**
 	 * Get valid emails after proper filtering.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param array $emails Valid-invalid email lists.
 	 *

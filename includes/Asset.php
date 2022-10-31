@@ -12,7 +12,7 @@ class Asset {
 	/**
 	 * Constructor.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 */
 	public function __construct() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ), 11 );
@@ -21,7 +21,7 @@ class Asset {
 	/**
 	 * Register all scripts and styles.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -33,7 +33,7 @@ class Asset {
 	/**
 	 * Get all styles.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return array
 	 */
@@ -50,7 +50,7 @@ class Asset {
 	/**
 	 * Get all scripts.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return array
 	 */
@@ -68,7 +68,7 @@ class Asset {
 	/**
 	 * Register styles.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param array $styles Array of styles.
 	 *
@@ -83,7 +83,7 @@ class Asset {
 	/**
 	 * Register scripts.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param array $scripts Array of scripts.
 	 *
@@ -98,7 +98,7 @@ class Asset {
 	/**
 	 * Enqueue admin styles and scripts.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -114,6 +114,8 @@ class Asset {
 
 	/**
 	 * Localize scripts.
+	 *
+	 * @since 0.0.1
 	 *
 	 * @return void
 	 */
@@ -149,7 +151,7 @@ class Asset {
 	/**
 	 * Get router base url.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param string $admin_page_url Admin page URL.
 	 *

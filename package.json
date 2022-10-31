@@ -33,6 +33,7 @@
     "eslint-config-wordpress": "^2.0.0",
     "eslint-plugin-vue": "^9.6.0",
     "mini-css-extract-plugin": "^2.6.1",
+    "replace-in-file": "^6.3.5",
     "sass": "^1.55.0",
     "sass-loader": "^13.1.0",
     "serialize-javascript": "^6.0.0",

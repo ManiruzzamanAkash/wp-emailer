@@ -5,14 +5,14 @@ namespace Akash\WpEmailer\Abstracts;
 /**
  * Abstract setting validator class.
  *
- * @since WP_EMAILER_SINCE
+ * @since 0.0.1
  */
 abstract class AbstractSettingsValidator {
 
 	/**
 	 * Setting's item value.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @var mixed
 	 */
@@ -21,7 +21,7 @@ abstract class AbstractSettingsValidator {
 	/**
 	 * Class constructor.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @param mixed $value Setting item value.
 	 */
@@ -32,7 +32,7 @@ abstract class AbstractSettingsValidator {
 	/**
 	 * Validate Setting's item value.
 	 *
-	 * @since WP_EMAILER_SINCE
+	 * @since 0.0.1
 	 *
 	 * @return bool True if a valid item otherwise false.
 	 */
