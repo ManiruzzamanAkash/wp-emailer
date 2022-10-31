@@ -13,6 +13,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import { debounce } from "debounce";
 import { validateSettings } from "../utils/validation";
 import SettingForm from '../components/settings/SettingForm.vue';
 import SettingFormLoading from "../components/settings/SettingFormLoading.vue";
@@ -25,9 +26,19 @@ export default {
         SettingFormLoading,
     },
 
-    computed: { ...mapGetters(["isSettingsSaving", "isSettingsLoading", "settings"]) },
+    data() {
+        return {
+            currentInput: {},
+        };
+    },
 
-    watch: {},
+    computed: { ...mapGetters(["alert", "isSettingsSaving", "isSettingsLoading", "settings"]) },
+
+    watch: {
+        currentInput: debounce(function(val) {
+            this.storeSettings(val);
+        }, 500)
+    },
 
     methods: {
         ...mapActions(["storeSettings", "setAlert", "hideAlert"]),
@@ -43,12 +54,13 @@ export default {
                 });
                 return;
             } else {
-                this.hideAlert();
+                if (alert.isVisible) {
+                    this.hideAlert();
+                }
             }
 
-            // Call AJAX & if succeeded, store in Vuex-store.
-            this.storeSettings(input);
-        }
+            this.currentInput = input;
+        },
     },
 };
 </script>
