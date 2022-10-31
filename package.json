@@ -10,7 +10,8 @@
     "lint": "eslint --config .eslintrc.js --ext .js,.vue src",
     "lint-fix": "npm run lint -- --fix",
     "zip": "node build/zip",
-    "version": "node build/version-replace"
+    "version": "node build/version-replace",
+    "release": "npm run build && npm run version && npm run makepot && npm run zip"
   },
   "author": "",
   "license": "GPL v3 or later",
@@ -29,6 +30,7 @@
     "browser-sync-webpack-plugin": "^2.3.0",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.2.2",
+    "debounce": "^1.2.1",
     "eslint": "^8.26.0",
     "eslint-config-wordpress": "^2.0.0",
     "eslint-plugin-vue": "^9.6.0",

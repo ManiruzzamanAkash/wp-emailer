@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-10-31T02:12:23+00:00\n"
+"POT-Creation-Date: 2022-10-31T16:05:43+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: wp-emailer\n"
@@ -80,7 +80,11 @@ msgstr ""
 msgid "Setting's item value is invalid."
 msgstr ""
 
-#: templates/app.php:2
+#: templates/app.php:4
+msgid "We're sorry but WpEmailer doesn't work properly without JavaScript. Please enable it to continue."
+msgstr ""
+
+#: templates/app.php:8
 msgid "Loading"
 msgstr ""
 

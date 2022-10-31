@@ -1,5 +1,5 @@
 # WP Emailer
-A WordPress plugin using Vue JS framework to work with email settings.
+A WordPress starter plugin using Vue JS framework (Vue 3) to work with Vuex, Vue router, i18n, PHP OOP, PHPUnit test, table, pagination, settings, graphs and so many.
 
 ---
 
@@ -16,6 +16,12 @@ composer install
 
 # Install npm dependencies.
 npm install
+
+# Start development mode server (if needs).
+npm run dev
+
+# Build scripts (if needs).
+npm run build
 ```
 
 ## PHP Coding Standard check and fix
@@ -37,11 +43,15 @@ Or, configure this from `/tests/phpunit/wp-config.php` file.
 composer run test
 ```
 
-## PHP Unit test + PHPCS CHeck
+## PHP Unit test + PHPCS Check
 
 ```sh
 composer run test:all
 ```
+![Composer run test:all command](https://i.ibb.co/C5HfHKB/Composer-run-test.png "Composer run test:all command").
+
+
+
 
 ## JavaScript Lint error
 
@@ -50,22 +60,38 @@ npm run lint
 ```
 
 
-## How to build plugin zip -
+## How to build plugin zip
 
+### Single release command
+
+```sh
+npm run release
+```
+After running these commands, a zip file named - `wpemailer.zip` will be generated at `dist/` folder.
+
+### One by one commands Optional (if needs)
 ```sh
 npm run build
 npm run version
 npm run makepot
 npm run zip
 ```
-After running these commands, a zip file named - `wpemailer.zip` will be generated at `dist/` folder.
 
-## Demo previews -
-### Settings Page -
+## Demo previews
+### Settings Page
 ![Settings Page](https://i.ibb.co/H78Nmv9/01-Settings-Page.png "Settings Page").
 
-### List Page -
+### List Page
 ![List Page](https://i.ibb.co/ykhKQd1/02-List-Page.png "List Page").
 
-### Graph Page -
+### Graph Page
 ![Graph Page](https://i.ibb.co/x3cTBDL/03-Graph-Page.png "Graph Page").
+
+### Skeleton Loader for Settings
+![Skeleton Loader for Settings](https://i.ibb.co/SvBX57x/04-Settings-loading.png "Skeleton Loader for Settings").
+
+### Skeleton Loader for Table
+![Skeleton Loader for Table](https://i.ibb.co/vkLHvmp/05-Table-loading.png "Skeleton Loader for Table").
+
+## Contact with me
+manirujjamanakash@gmail.com
